@@ -1,3 +1,7 @@
+<?php
+require('functions/db_functions.php');
+?>
+
 <html lang="en">
 
 <!-- Подключил бутстрап на этой странице, чтобы быстренько накидать основные стили. -->
@@ -48,7 +52,7 @@
 
           <?php
           // Сценарии изменения контента.
-          // TODO: Хорошо бы сделать переменные в отдельном файле с GET-параметрами. Для стандартизации.
+          // TODO: Хорошо бы сделать переменные с GET-параметрами в отдельном файле. Для стандартизации.
           if ($_GET['block'] == 'add-practice') {
             require('chunks/block_add_practice.php');
           }
@@ -62,7 +66,8 @@
 
 
 
-          <?php // require('chunks/block_add_resume.php');
+          <?php          
+          // require('chunks/block_add_resume.php');
           ?>
           <?php // require('chunks/block_add_company.php');
           ?>

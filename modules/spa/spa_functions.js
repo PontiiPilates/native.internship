@@ -14,3 +14,19 @@
 //   }
 //   );
 // })
+
+
+
+$('#add-practice').submit(function (evt) {
+  evt.preventDefault();
+  $.ajax({
+    type: "post",
+    url: 'php/script_add_practice.php',
+    data: new FormData(this),
+    processData: false,
+    contentType: false,
+    success: function(res){
+      alert(res);
+    }
+  })
+})
