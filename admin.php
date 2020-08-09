@@ -2,7 +2,7 @@
 require('functions/db_functions.php');
 ?>
 
-<html lang="en">
+<html lang="ru">
 
 <!-- Подключил бутстрап на этой странице, чтобы быстренько накидать основные стили. -->
 
@@ -49,6 +49,8 @@ require('functions/db_functions.php');
       </div>
       <div class="col-lg-9 col-sm-12">
         <div class="content">
+          <?php require('chunks/block_alert.php') ?>
+
 
           <?php
           // Сценарии изменения контента.
@@ -66,7 +68,7 @@ require('functions/db_functions.php');
 
 
 
-          <?php          
+          <?php
           // require('chunks/block_add_resume.php');
           ?>
           <?php // require('chunks/block_add_company.php');
