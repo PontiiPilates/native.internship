@@ -7,10 +7,12 @@
 function connect()
 {
   $host = 'localhost';
-  $user = 'root';
-  $password = '';
-  $db_name = 'internship';
-  return mysqli_connect($host, $user, $password, $db_name);
+  $user = 'internship';
+  $password = 'choaF9ei';
+  $db_name = 'db_internship';
+  $connect = mysqli_connect($host, $user, $password, $db_name);
+  $connect -> set_charset("utf8");
+  return $connect;
 }
 
 /**

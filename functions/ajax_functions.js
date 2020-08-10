@@ -13,7 +13,7 @@ function outputMessage(res) {
     state = 'alert-danger';
   }
   // Вывод сообщения.
-  $('#alert').addClass(state).text(text).removeClass('none').delay(5000).fadeOut(300);
+  $('#alert').addClass(state).text(text).fadeIn(300).delay(5000).fadeOut(300);
   // Очистка формы после отправки.
   $('#add_practice')[0].reset();
 }
