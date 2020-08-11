@@ -15,8 +15,12 @@ function outputMessage(res, form) {
     state = 'alert-warning';
   }
   // Вывод сообщения.
+<<<<<<< HEAD
   // !Если сообщение появляется повторно, то у него остаются классы предыдущего. Поэтому приходится перед началом показа сообщения очищать возможно оставшиеся классы.
   $('#alert').removeClass('alert-success alert-danger alert-warning').addClass(state).text(text).fadeIn(300).delay(5000).fadeOut(300);
+=======
+  $('#alert').addClass(state).text(text).fadeIn(300).delay(5000).fadeOut(300);
+>>>>>>> 14f2d358b7413d095f0b07fc536f6370070d401f
   // Очистка формы после отправки.
   $(form)[0].reset();
 }

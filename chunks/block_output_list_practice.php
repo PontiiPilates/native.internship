@@ -1,5 +1,6 @@
 <?php
 
+<<<<<<< HEAD
 $output = db_output_all("SELECT * FROM `practices`");
 
 // echo '<pre>';
@@ -7,6 +8,21 @@ $output = db_output_all("SELECT * FROM `practices`");
 // echo '</pre>';
 ?>
 
+=======
+$a = mysqli_query(connect(), "SELECT * FROM `practices`");
+$a = mysqli_fetch_all($a);
+
+echo '<pre>';
+print_r($a);
+echo '<pre>';
+
+?>
+
+
+
+<!-- Таблица вывода практик -->
+<!-- После открытия переходим на страницу вывода конкретной практики или показываем ее в попап окне-->
+>>>>>>> 14f2d358b7413d095f0b07fc536f6370070d401f
 <h3>Список практик</h3>
 
 <table class="table table-striped table-hover">

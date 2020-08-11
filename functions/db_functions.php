@@ -11,7 +11,11 @@ function connect()
   $password = 'choaF9ei';
   $db_name = 'db_internship';
   $connect = mysqli_connect($host, $user, $password, $db_name);
+<<<<<<< HEAD
   $connect->set_charset("utf8");
+=======
+  $connect -> set_charset("utf8");
+>>>>>>> 14f2d358b7413d095f0b07fc536f6370070d401f
   return $connect;
 }
 
