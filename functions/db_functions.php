@@ -7,10 +7,12 @@
 function connect()
 {
   $host = 'localhost';
-  $user = 'root';
-  $password = '';
-  $db_name = 'internship';
-  return mysqli_connect($host, $user, $password, $db_name);
+  $user = 'internship';
+  $password = 'choaF9ei';
+  $db_name = 'db_internship';
+  $connect = mysqli_connect($host, $user, $password, $db_name);
+  $connect->set_charset("utf8");
+  return $connect;
 }
 
 /**
@@ -39,5 +41,24 @@ function check_connect()
 function db_add($query)
 {
   $res = mysqli_query(connect(), $query);
+  return $res;
+}
+
+/**
+ * Выполняет вывод всех записей из базы данных в соответствии с запросом.
+ * Возвращает ассоциативный массив.
+ */
+function db_output_all($query)
+{
+  $sql = mysqli_query(connect(), $query);
+  $res = mysqli_fetch_all($sql, TRUE);
+  return $res;
+}
+
+
+function db_output_once($query)
+{
+  $sql = mysqli_query(connect(), $query);
+  $res = mysqli_fetch_assoc($sql);
   return $res;
 }

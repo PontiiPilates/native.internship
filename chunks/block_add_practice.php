@@ -1,8 +1,7 @@
-<!-- Форма добавления практики. -->
 <form id="add_practice">
   <div class="form-group">
-    <label for="practice_name">Введите название практики<span class="text-danger">*</span></label>
-    <input type="text" name="practice_name" id="practice_name" class="form-control" required>
+    <label for="practice_title">Введите название практики<span class="text-danger">*</span></label>
+    <input type="text" name="practice_title" id="practice_title" class="form-control" required>
   </div>
   <div class="form-group">
     <label for="practice_description">Введите описание<span class="text-danger">*</span></label>
