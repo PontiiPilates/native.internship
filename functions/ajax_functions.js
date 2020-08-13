@@ -1,4 +1,14 @@
 /**
+ * Осуществляет изменение контента на страницы без перезагрузки
+ */
+function frontChange(element, value) {
+  // Обновление изображения при его замене без перезагрузки.
+  if (value) {
+    $(element).attr('src', 'img/company_logo/' + value);
+  }
+}
+
+/**
  * Обработка ответа сервера и вывод его на frontend для Ajax.
  */
 function outputMessage(res, form) {
@@ -6,24 +16,26 @@ function outputMessage(res, form) {
   messages = res.split(': ');
   type = messages[0];
   text = messages[1];
+  value = messages[2];
   // Сценарии вывода оповещения
   if (type == 's') {
     state = 'alert-success';
+    frontChange('#company-logo-preview', value);
   } else if (type == 'e') {
     state = 'alert-danger';
   } else if (type == 'w') {
     state = 'alert-warning';
   }
+  // alert(state);
   // Вывод сообщения.
-<<<<<<< HEAD
   // !Если сообщение появляется повторно, то у него остаются классы предыдущего. Поэтому приходится перед началом показа сообщения очищать возможно оставшиеся классы.
   $('#alert').removeClass('alert-success alert-danger alert-warning').addClass(state).text(text).fadeIn(300).delay(5000).fadeOut(300);
-=======
-  $('#alert').addClass(state).text(text).fadeIn(300).delay(5000).fadeOut(300);
->>>>>>> 14f2d358b7413d095f0b07fc536f6370070d401f
+
   // Очистка формы после отправки.
-  $(form)[0].reset();
+  // $(form)[0].reset();
+
 }
+
 
 /**
  * Передаёт данные с формы на сервер и получает ответ сервера
@@ -45,30 +57,54 @@ function transferFormData(form, path) {
   });
 };
 
-
-// $('[data-target="#practiceModal"]').bind('click', function() {
-//   practiceId = $(this).attr('id');
-//   // window.location += '&practice_id=' + practiceId;
-//   // window.history.pushState("object or string", "Title", "http://xx.x/index?brand[]=1");
-//   // $.get('http://internship.sfu-kras.ru/admin.php?block=list-practice', {param: 1});
-  
-//   $.ajax({
-//     url: 'php/output_practice.php',
-//     method: 'post',
-//     dataType: 'html',
-//     data: {
-
-//       id: practiceId
-//     },
-//     success: function(data) {
-//       // !Остановился тут. Нужно бы получить json.
-//       alert(data);
-//     }
-//   });
-// })
-
 /**
  * Активные функуции.
  */
 transferFormData('#add_practice', 'php/add_practice.php');
+
 transferFormData('#add-company', 'php/add_company.php');
+transferFormData('#control-company', 'php/update_company.php');
+
+
+
+/**
+ * Реализация ajax удаление компании.
+ */
+$('#company_delete').click(function (evt) {
+  evt.preventDefault();
+  company_id = $(this).attr('data-target');
+  $.ajax({
+    type: "POST",
+    url: 'php/delete_company.php',
+    data: { 'company_id': company_id },
+    success: function (res) {
+      // alert(res);
+      // Обработка ответов сервера.
+      messages = res.split(': ');
+      type = messages[0];
+      text = messages[1];
+      // Сценарии вывода оповещения
+      if (type == 's') {
+        state = 'alert-success';
+        $('#control-company').fadeOut(300);
+        
+
+      } else if (type == 'e') {
+        state = 'alert-danger';
+      } else if (type == 'w') {
+        state = 'alert-warning';
+      }
+      // Вывод сообщения.
+      // !Если сообщение появляется повторно, то у него остаются классы предыдущего. Поэтому приходится перед началом показа сообщения очищать возможно оставшиеся классы.
+      $('#alert').removeClass('alert-success alert-danger alert-warning').addClass(state).text(text).fadeIn(300).delay(5000).fadeOut(300);
+    }
+  });
+});
+
+
+
+
+
+// TODO По окончанию работ нужно отрефакторить этот файл разделением его на функции в рамках проекта.
+// 1. Ajax-удаление компании
+// 2. Ajax-удаление практики

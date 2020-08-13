@@ -39,7 +39,7 @@ require('functions/db_functions.php');
         <ul>
           <li class="mb-1"><a href="?block=list-practices" class="btn btn-link">Практики</a></li>
           <li class="mb-1"><a href="##" class="btn btn-link">Резюме</a></li>
-          <li class="mb-1"><a href="?block=list-companys" class="btn btn-link">Компании</a></li>
+          <li class="mb-1"><a href="?block=list-company" class="btn btn-link">Компании</a></li>
         </ul>
         <hr>
         <ul>
@@ -53,7 +53,7 @@ require('functions/db_functions.php');
 
 
           <?php
-          // !Сценарии изменения практик.
+          // !Сценарии управления практик.
           // Добавление практики.
           if ($_GET['block'] == 'add-practice') {
             require('chunks/block_add_practice.php');
@@ -67,14 +67,14 @@ require('functions/db_functions.php');
             require('chunks/block_control_practice.php');
           }
 
-          // !Сценарии изменения практик.
+          // !Сценарии управления компаний.
           // Добавление компании.
           if ($_GET['block'] == 'add-company') {
             require('chunks/block_add_company.php');
           }
           // Просмотр списка компаний.
-          if ($_GET['block'] == 'list-companys') {
-            require('chunks/block_output_list_companys.php');
+          if ($_GET['block'] == 'list-company') {
+            require('chunks/block_output_list_company.php');
           }
           // Просмотр и редактирование компании.
           if ($_GET['block'] == 'control-company') {
