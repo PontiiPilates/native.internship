@@ -32,14 +32,16 @@ require('functions/db_functions.php');
       <div class="col-lg-3 col-sm-12">
         <ul>
           <li class="mb-3"><a href="?block=add-practice" class="btn btn-primary">Добавить практику</a></li>
-          <li class="mb-3"><a href="##" class="btn btn-secondary">Добавить резюме</a></li>
+          <li class="mb-3"><a href="?block=add-resume" class="btn btn-secondary">Добавить резюме</a></li>
           <li class="mb-3"><a href="?block=add-company" class="btn btn-info">Добавить компанию</a></li>
+          <li class="mb-3"><a href="?block=add-category" class="btn btn-info">Добавить категорию</a></li>
         </ul>
         <hr>
         <ul>
           <li class="mb-1"><a href="?block=list-practices" class="btn btn-link">Практики</a></li>
-          <li class="mb-1"><a href="##" class="btn btn-link">Резюме</a></li>
+          <li class="mb-1"><a href="?block=list-resume" class="btn btn-link">Резюме</a></li>
           <li class="mb-1"><a href="?block=list-company" class="btn btn-link">Компании</a></li>
+          <li class="mb-1"><a href="?block=list-category" class="btn btn-link">Категории</a></li>
         </ul>
         <hr>
         <ul>
@@ -80,6 +82,39 @@ require('functions/db_functions.php');
           if ($_GET['block'] == 'control-company') {
             require('chunks/block_control_company.php');
           }
+
+
+          // !Сценарии управления категориями.
+          // Добавление компании.
+          if ($_GET['block'] == 'add-category') {
+            require('chunks/block_add_category.php');
+          }
+          // Просмотр списка компаний.
+          if ($_GET['block'] == 'list-category') {
+            require('chunks/block_output_list_category.php');
+          }
+          // Просмотр и редактирование компании.
+          if ($_GET['block'] == 'control-category') {
+            require('chunks/block_control_category.php');
+          }
+
+          // !Сценарии управления резюме.
+          // Добавление компании.
+          if ($_GET['block'] == 'add-resume') {
+            require('chunks/block_add_resume.php');
+          }
+          // Просмотр списка компаний.
+          if ($_GET['block'] == 'list-resume') {
+            require('chunks/block_output_list_resume.php');
+          }
+          // Просмотр и редактирование компании.
+          if ($_GET['block'] == 'control-resume') {
+            require('chunks/block_control_resume.php');
+          }
+
+
+
+
 
           // !Сценарии откликов.
           // Просмотр откликов соискателей.

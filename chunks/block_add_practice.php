@@ -1,3 +1,9 @@
+<?php
+$output_companys = db_output_all("SELECT * FROM companys");
+$output_categorys = db_output_all("SELECT * FROM categorys");
+?>
+
+
 <form id="add_practice">
   <div class="form-group">
     <label for="practice_title">Введите название практики<span class="text-danger">*</span></label>
@@ -15,7 +21,17 @@
   <div class="form-group">
     <label for="practice_company">Выберите компанию<span class="text-danger">*</span></label>
     <select name="practice_company" id="practice_company" required>
-      <option value="10" class="form-control">Газпром</option>
+      <?php foreach ($output_companys as $k) : ?>
+        <option value="<?php print $k['id'] ?>" class="form-control"><?php print $k['name'] ?></option>
+      <?php endforeach; ?>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="practice_category">Выберите категорию<span class="text-danger">*</span></label>
+    <select name="practice_category" id="practice_category" required>
+      <?php foreach ($output_categorys as $k) : ?>
+        <option value="<?php print $k['id'] ?>" class="form-control"><?php print $k['name'] ?></option>
+      <?php endforeach; ?>
     </select>
   </div>
   <div class="form-group">
