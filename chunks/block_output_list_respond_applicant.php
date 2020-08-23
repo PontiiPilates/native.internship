@@ -1,29 +1,36 @@
-<!-- Таблица вывода откликов соискателей -->
+<?php
+$output = db_output_all("SELECT * FROM `responds_applicants`");
+// echo '<pre>';
+// print_r($practice_tittle);
+// echo '</pre>';
+?>
+
+<h3>Отклики соискателей</h3>
+
 <table class="table table-striped table-hover">
-  <h3>Отклики соискателей</h3>
   <thead>
     <tr>
-      <th>ФИО</th>
-      <th>Дата отклика</th>
-      <th>Название практики</th>
-      <th>Компания</th>
-      <th>Действия</th>
+      <th>Дата / время отклика</th>
+      <th>ФИО соискателя</th>
+      <th>Практика</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <td>Пупырышкин Владислав Георгиевич</td>
-      <td>21.06.2020</td>
-      <td>Трубопрокольщик</td>
-      <td>Сбербанк</td>
-      <td><button>Подробнее</button></td>
-    </tr>
-    <tr>
-      <td>Пупырышкин Валентина Растроповичевна</td>
-      <td>21.06.2020</td>
-      <td>Семечкоопрыскиватель</td>
-      <td>Бабкины семечки</td>
-      <td><button>Подробнее</button></td>
-    </tr>
+
+    <!-- Вывод откликов из базы данных -->
+    <?php foreach ($output as $k) : ?>
+      <tr>
+        <td><?php print $k['datetime']; ?></td>
+        <td><a href="http://internship.sfu-kras.ru/admin.php?block=resume&respond-id=<?php print $k['id']; ?>"><?php print $k['fullname']; ?></a></td>
+        <?php
+        // Вывод загловка практики.
+        $practice_id = $k['popup_practice_id'];
+        $practice_tittle = db_output_once("SELECT title FROM practices WHERE id = '$practice_id'");
+        ?>
+        <td><a href="http://internship.sfu-kras.ru/admin.php?block=practice&practice-id=<?php print $practice_id; ?>"><?php print $practice_tittle['title']; ?></a></td>
+      </tr>
+    <?php endforeach; ?>
+    <!--  -->
+
   </tbody>
 </table>

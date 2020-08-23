@@ -45,8 +45,8 @@ require('functions/db_functions.php');
         </ul>
         <hr>
         <ul>
-          <li class="mb-1"><a href="?block=output_list_respond_applicant" class="btn btn-link">Отклики соискателей</a></li>
-          <li class="mb-1"><a href="##" class="btn btn-link">Отклики работодателей</a></li>
+          <li class="mb-1"><a href="?block=responds_applicants" class="btn btn-link">Отклики соискателей</a></li>
+          <li class="mb-1"><a href="?block=responds_employers" class="btn btn-link">Отклики работодателей</a></li>
         </ul>
       </div>
       <div class="col-lg-9 col-sm-12">
@@ -118,9 +118,42 @@ require('functions/db_functions.php');
 
           // !Сценарии откликов.
           // Просмотр откликов соискателей.
-          if ($_GET['block'] == 'output_list_respond_applicant') {
+          if ($_GET['block'] == 'responds_applicants') {
             require('chunks/block_output_list_respond_applicant.php');
           }
+          if ($_GET['block'] == 'responds_employers') {
+            require('chunks/block_output_list_respond_employer.php');
+          }
+
+          // // Просмотр соискателя.
+          // if ($_GET['block'] == 'resume') {
+          //   require('chunks/block_view_only_applicant.php');
+          // }
+
+          // Просмотр резюме.
+          if ($_GET['block'] == 'resume') {
+            require('chunks/block_view_only_resume.php');
+          }
+
+          // Просмотр работодателя.
+          if ($_GET['block'] == 'employer') {
+            require('chunks/block_view_only_employer.php');
+          }
+
+          // Просмотр практики.
+          if ($_GET['block'] == 'practice') {
+            require('chunks/block_view_only_practice.php');
+          }
+
+
+
+          // Просмотр откликов работодателей.
+          // if ($_GET['block'] == 'output_list_respond_applicant') {
+          //   require('chunks/block_output_list_respond_applicant.php');
+          // }
+
+
+          // block_applicant_view.php
 
           ?>
 

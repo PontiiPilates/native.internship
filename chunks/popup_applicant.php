@@ -1,8 +1,9 @@
-<div class="popup" style="display: none;">
+<!-- Форма отклика для соискателя -->
+<div class="popup none" id="popup-applicant">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-9 col-sm-12">
-        <form class="popup-content">
+        <form class="popup-content" id="form-applicant">
           <img class="popup-close" src="img/close.svg" alt="Закрыть">
           <h2 class="popup-head">Отправить заявку</h2>
           <div class="popup-vac-name">Менеджер по продажам</div>
@@ -11,17 +12,17 @@
             <div class="popup-form-row">
               <div class="form-block">
                 <label for="name" class="form-head">ФИО</label>
-                <input data-req="true" id="name" placeholder="Иванов Иван Иванович" type="text" class="form-input">
+                <input name="fullname" data-req="true" id="name" placeholder="Иванов Иван Иванович" type="text" class="form-input">
                 <div class="form-input-error-label">Обязательное поле</div>
               </div>
               <div class="form-block">
                 <label for="date" class="form-head">Дата рождения</label>
-                <input data-req="true" id="date" type="date" class="form-input">
+                <input name="birthday" data-req="true" id="date" type="date" class="form-input">
                 <div class="form-input-error-label">Обязательное поле</div>
               </div>
               <div class="form-block">
                 <label for="state" class="form-head">Гражданство</label>
-                <input data-req="true" id="state" placeholder="Российская Федерация" type="text" class="form-input">
+                <input name="citizenship" data-req="true" id="state" placeholder="Российская Федерация" type="text" class="form-input">
                 <div class="form-input-error-label">Обязательное поле</div>
                 <!-- <div class="form-input-suggest">Российская Федерация</div> -->
               </div>
@@ -32,17 +33,17 @@
             <div class="popup-form-row">
               <div class="form-block">
                 <label for="num" class="form-head">Номер телефона</label>
-                <input data-req="true" id="num" placeholder="+7 000 000 00-00" type="number" class="form-input">
+                <input name="phone_number" data-req="true" id="num" placeholder="+7 000 000 00-00" type="text" class="form-input">
                 <div class="form-input-error-label">Обязательное поле</div>
               </div>
               <div class="form-block">
                 <label for="el" class="form-head">Электронная почта</label>
-                <input data-req="true" id="el" placeholder="address@mail.ru" type="email" class="form-input">
+                <input name="email" data-req="true" id="el" placeholder="address@mail.ru" type="email" class="form-input">
                 <div class="form-input-error-label">Обязательное поле</div>
               </div>
               <div class="form-block">
                 <label for="vk" class="form-head">Профиль ВКонтакте</label>
-                <input data-req="false" id="vk" placeholder="vk.com/ivanov" type="email" class="form-input">
+                <input name="vk_profile" data-req="false" id="vk" placeholder="vk.com/ivanov" type="email" class="form-input">
                 <div class="form-input-error-label">Обязательное поле</div>
               </div>
             </div>
@@ -52,7 +53,7 @@
             <div class="popup-form-row popup-form-row-column">
               <div class="form-block">
                 <label for="inst" class="form-head">Институт</label>
-                <select id="inst" size="1" class="form-input">
+                <select name="institute" id="inst" size="1" class="form-input">
                   <option value="Военный учебный центр (ВУЦ)">Военный учебный центр (ВУЦ)</option>
                   <option value="Гуманитарный институт (ГИ)">Гуманитарный институт (ГИ)</option>
                   <option value="Инженерно-строительный институт (ИСИ)">Инженерно-строительный институт (ИСИ)</option>
@@ -82,13 +83,13 @@
                 <label class="form-head">Уровень образования</label>
                 <div class="form-tabs">
                   <div class="tabs">
-                    <input id="bak" type="radio" name="form-tabs" checked>
+                    <input id="bak" type="radio" name="level_education" value="Бакалавриат" checked>
                     <label for="bak">Бакалавриат</label>
 
-                    <input id="mag" type="radio" name="form-tabs">
+                    <input id="mag" type="radio" name="level_education" value="Магистратура">
                     <label for="mag">Магистратура</label>
 
-                    <input id="spec" type="radio" name="form-tabs">
+                    <input id="spec" type="radio" name="level_education" value="Специалитет">
                     <label for="spec">Специалитет</label>
                   </div>
 
@@ -96,22 +97,19 @@
                     <div class="form-block">
                       <label class="form-head">Курс</label>
                       <div class="sub-tabs">
-                        <input id="1c" type="radio" name="content-tab1" checked>
+                        <input id="1c" type="radio" name="course" value="1" checked>
                         <label for="1c">1</label>
-
-                        <input id="2c" type="radio" name="content-tab1">
+                        <input id="2c" type="radio" name="course" value="2">
                         <label for="2c">2</label>
-
-                        <input id="3c" type="radio" name="content-tab1">
+                        <input id="3c" type="radio" name="course" value="3">
                         <label for="3c">3</label>
-
-                        <input id="4c" type="radio" name="content-tab1">
+                        <input id="4c" type="radio" name="course" value="4">
                         <label for="4c">4</label>
                       </div>
                     </div>
                     <div class="form-block">
                       <label for="naprb" class="form-head">Направление подготовки</label>
-                      <input data-req="true" id="naprb" placeholder="Дизайн" type="text" class="form-input">
+                      <input name="direction[]" data-req="true" id="naprb" placeholder="Дизайн" type="text" class="form-input">
                       <div class="form-input-error-label">Обязательное поле</div>
                       <a href="https://admissions.sfu-kras.ru/exams" target="_blank" class="form-input-suggest">Список направлений подготовки</a>
                     </div>
@@ -120,16 +118,15 @@
                     <div class="form-block">
                       <label class="form-head">Курс</label>
                       <div class="sub-tabs">
-                        <input id="1cm" type="radio" name="content-tab2" checked>
+                        <input id="1cm" type="radio" name="course" value="1" checked>
                         <label for="1cm">1</label>
-
-                        <input id="2cm" type="radio" name="content-tab2">
+                        <input id="2cm" type="radio" name="course" value="2">
                         <label for="2cm">2</label>
                       </div>
                     </div>
                     <div class="form-block">
                       <label for="naprm" class="form-head">Направление подготовки</label>
-                      <input data-req="true" id="naprm" placeholder="Прикладная математика" type="text" class="form-input">
+                      <input name="direction[]" data-req="true" id="naprm" placeholder="Прикладная математика" type="text" class="form-input">
                       <div class="form-input-error-label">Обязательное поле</div>
                       <a href="https://admissions.sfu-kras.ru/exams" target="_blank" class="form-input-suggest">Список направлений подготовки</a>
                     </div>
@@ -138,25 +135,21 @@
                     <div class="form-block">
                       <label class="form-head">Курс</label>
                       <div class="sub-tabs">
-                        <input id="1cs" type="radio" name="content-tab3" checked>
+                        <input id="1cs" type="radio" name="course" value="1" checked>
                         <label for="1cs">1</label>
-
-                        <input id="2cs" type="radio" name="content-tab3">
+                        <input id="2cs" type="radio" name="course" value="2">
                         <label for="2cs">2</label>
-
-                        <input id="3cs" type="radio" name="content-tab3">
+                        <input id="3cs" type="radio" name="course" value="3">
                         <label for="3cs">3</label>
-
-                        <input id="4cs" type="radio" name="content-tab3">
+                        <input id="4cs" type="radio" name="course" value="4">
                         <label for="4cs">4</label>
-
-                        <input id="5cs" type="radio" name="content-tab3">
+                        <input id="5cs" type="radio" name="course" value="5">
                         <label for="5cs">5</label>
                       </div>
                     </div>
                     <div class="form-block">
                       <label for="naprs" class="form-head">Специальность</label>
-                      <input data-req="true" id="naprs" placeholder="Прикладная математика" type="text" class="form-input">
+                      <input name="direction[]" data-req="true" id="naprs" placeholder="Прикладная математика" type="text" class="form-input">
                       <div class="form-input-error-label">Обязательное поле</div>
                     </div>
                   </section>
@@ -166,13 +159,11 @@
                 <label class="form-head">Форма обучения</label>
                 <div class="form-tabs sub-form-tabs">
                   <div class="sub-tabs">
-                    <input id="ok" type="radio" name="edu-form" checked>
+                    <input id="ok" type="radio" name="form_education" value="Очная" checked>
                     <label for="ok">Очная</label>
-
-                    <input id="okzao" type="radio" name="edu-form">
+                    <input id="okzao" type="radio" name="form_education" value="Очно-заочная">
                     <label for="okzao">Очно-заочная</label>
-
-                    <input id="zao" type="radio" name="edu-form">
+                    <input id="zao" type="radio" name="form_education" value="Заочная">
                     <label for="zao">Заочная</label>
                   </div>
                 </div>
@@ -184,19 +175,32 @@
               </div> -->
               <div class="form-block">
                 <label for="dop" class="form-head">Дополнительная информация</label>
-                <textarea id="dop" placeholder="Напишите о себе: есть ли опыт работы, каких результатов достигли, чего ожидаете от практики" type="text" class="form-input"></textarea>
+                <textarea name="applicant_about" id="dop" placeholder="Напишите о себе: есть ли опыт работы, каких результатов достигли, чего ожидаете от практики" type="text" class="form-input"></textarea>
                 <div class="form-input-error-label">Обязательное поле</div>
               </div>
             </div>
-            <div id="send-form" class="button button-primary">
+
+            <!-- Алерт -->
+            <div class="none alert popup-alert">
+              <strong>Success!</strong> Indicates a successful or positive action.
+            </div>
+            <!--  -->
+
+
+
+            <div id="send-form-applicant" class="button button-primary">
               <img class="button-icon" src="img/done.svg" alt="Добавить">
               <div class="button-content">Откликнуться</div>
             </div>
+
+
+
             <div class="pers-block">
-              <input type="checkbox" id="pers">
+              <input name="signature" type="checkbox" id="pers">
               <label for="pers" class="pers-head">Согласен на обработку персональных данных</label>
               <div class="form-input-error-label form-input-error-label-pers">Согласие обязательно</div>
               <!-- <label class="pers-text">Согласен на обработку персональных данных в соответствии с федеральным законом от 27 июля 2006 г. № 152-ФЗ «О персональных данных»</label> -->
+              <input type="hidden" id="popup_practice_id" name="popup_practice_id" value="#">
             </div>
           </div>
         </form>
