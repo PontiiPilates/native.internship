@@ -7,6 +7,7 @@ function upPopupAddId(button, popup, hidden) {
     $(popup).removeClass('none');
     // Добавить идентификатор практики.
     id = $(this).attr('id');
+<<<<<<< HEAD
     let title = $(this).attr('item-title');
     console.log(title);
 
@@ -21,13 +22,19 @@ function upPopupAddId(button, popup, hidden) {
 
     // $('.popup-head').html(title);
     // $('#num').css('background', '#000');
+=======
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
     $(hidden).attr('value', id);
   });
 }
 
 
 
+<<<<<<< HEAD
 // $('#num').css('background-color', 'red');
+=======
+
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
 
 
 // закрыть окно формы
@@ -35,13 +42,20 @@ $('.popup-close').click(function () {
   $('.popup').addClass('none');
 
   // Очистить форму.
+<<<<<<< HEAD
   $('#form-applicant')[0].reset();
   $('#form-employer')[0].reset();
+=======
+  $('.popup-content')[0].reset();
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
   // Сбросить классы с алёрта и отключить.
   $('.popup-alert').removeClass('alert-success alert-danger alert-warning').hide();
   // Вернуть кнопку.
   $('#send-form-applicant').show();
+<<<<<<< HEAD
   $('#send-form-employer').show();
+=======
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
 });
 
 $(document).mouseup(function (e) {
@@ -50,13 +64,20 @@ $(document).mouseup(function (e) {
     $('.popup').addClass('none');
 
     // Очистить форму.
+<<<<<<< HEAD
     $('#form-applicant')[0].reset();
     $('#form-employer')[0].reset();
+=======
+    $('.popup-content')[0].reset();
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
     // Сбросить классы с алёрта и отключить.
     $('.popup-alert').removeClass('alert-success alert-danger alert-warning').hide();
     // Вернуть кнопку.
     $('#send-form-applicant').show();
+<<<<<<< HEAD
     $('#send-form-employer').show();
+=======
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
   }
 });
 
@@ -117,6 +138,7 @@ function transferFormData(form, path, clean) {
       processData: false,
       contentType: false,
       success: function (res) {
+<<<<<<< HEAD
         // alert(res);
         outputMessage(res, form);
 
@@ -125,6 +147,10 @@ function transferFormData(form, path, clean) {
           $(form)[0].reset();
         }
 
+=======
+        alert(res);
+        outputMessage(res, form);
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
       }
     })
   });
@@ -136,6 +162,7 @@ function transferFormData(form, path, clean) {
  */
 function transferPopup(button, form, path) {
   // Кнопка отправки формы.
+<<<<<<< HEAD
   $.ajax({
     type: 'POST',
     url: path,
@@ -162,6 +189,33 @@ function transferPopup(button, form, path) {
   // $(button).click(function () {
 
   // });
+=======
+  $(button).click(function () {
+    $.ajax({
+      type: 'POST',
+      url: path,
+      // Форма, данные с которой будут переданы.
+      data: $(form).serialize(),
+      success: function (res) {
+        // Обработка ответов сервера.
+        messages = res.split(': ');
+        type = messages[0];
+        text = messages[1];
+        // Сценарии вывода оповещения
+        // alert(res);
+        if (type == 's') {
+          state = 'alert-success';
+        } else if (type == 'e') {
+          state = 'alert-danger';
+        }
+        // Кнопка отправки формы.
+        $(button).hide();
+        // Алетр.
+        $('.popup-alert').addClass(state).text(text).fadeIn(300);
+      }
+    });
+  });
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
 }
 
 
@@ -171,22 +225,33 @@ function transferPopup(button, form, path) {
 upPopupAddId('.respond-practice', '#popup-applicant', '#popup_practice_id');
 upPopupAddId('.respond-resume', '#popup-employer', '#popup_resume_id');
 
+<<<<<<< HEAD
 // transferPopup('#send-form-applicant', '#form-applicant', 'php/respond_applicant.php');
 // transferPopup('#send-form-employer', '#form-employer', 'php/respond_employer.php');
 
 
 // Функции обработки форм, отвещающих за добавление материалов в базу данных
+=======
+transferPopup('#send-form-applicant', '#form-applicant', 'php/respond_applicant.php');
+transferPopup('#send-form-employer', '#form-employer', 'php/respond_employer.php');
+
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
 transferFormData('#add_practice', 'php/add_practice.php');
 transferFormData('#add-company', 'php/add_company.php');
 transferFormData('#add-category', 'php/add_category.php');
 transferFormData('#add-resume', 'php/add_resume.php');
+<<<<<<< HEAD
 transferFormData('#add_direction', 'php/add_direction.php', 'true');
 
 // Функции обработки форм, отвещающих за редактирование материалов
+=======
+
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
 transferFormData('#control-company', 'php/update_company.php');
 transferFormData('#control-category', 'php/update_category.php');
 transferFormData('#control-practice', 'php/update_practice.php');
 transferFormData('#control-resume', 'php/update_resume.php');
+<<<<<<< HEAD
 transferFormData('#control-direction', 'php/update_direction.php');
 
 
@@ -236,6 +301,9 @@ function unitDelete(form, btn, path) {
 }
 
 unitDelete('#control-direction', '#direction_delete', 'php/delete_direction.php');
+=======
+
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
 
 
 
@@ -348,6 +416,7 @@ $('#resume_delete').click(function (evt) {
   });
 });
 
+<<<<<<< HEAD
 /**
  * Реализация ajax удаление практики.
  */
@@ -413,6 +482,9 @@ function deleteRespond(close, row, path) {
 
 deleteRespond('.respond-applicant-close', '[respond-applicant-row-id="', 'php/delete_respond_applicant.php');
 deleteRespond('.respond-employer-close', '[respond-employer-row-id="', 'php/delete_respond_employer.php');
+=======
+
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
 
 
 

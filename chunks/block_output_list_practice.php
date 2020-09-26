@@ -1,15 +1,27 @@
 <?php
+<<<<<<< HEAD
 require('functions/style_for_tables.php');
 $output = db_output_all("SELECT * FROM `practices` ORDER BY timestamp DESC");
+=======
+
+$output = db_output_all("SELECT * FROM `practices`");
+
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
 // echo '<pre>';
 // print_r($k);
 // echo '</pre>';
 ?>
 
+<<<<<<< HEAD
 <h3 <?php print $h3_style; ?>>Список практик</h3>
 
 <table <?php print $table_style; ?>>
 
+=======
+<h3>Список практик</h3>
+
+<table class="table table-striped table-hover">
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
   <thead>
     <tr <?php print $tr_head_style; ?>>
       <th <?php print $th_style; ?>>Название</th>
@@ -19,6 +31,7 @@ $output = db_output_all("SELECT * FROM `practices` ORDER BY timestamp DESC");
   </thead>
 
   <tbody>
+<<<<<<< HEAD
     <?php foreach ($output as $k) : ?>
       <?php
       $company_id = $k['company_id'];
@@ -33,3 +46,24 @@ $output = db_output_all("SELECT * FROM `practices` ORDER BY timestamp DESC");
   </tbody>
 
 </table>
+=======
+
+    <!-- Вывод практик из базы данных -->
+    <?php foreach ($output as $k) : ?>
+      <tr>
+        <td><?php print $k['title']; ?></td>
+        <td><?php print $k['company_id']; ?></td>
+        <td><?php print $k['timestamp']; ?></td>
+        <td>
+          <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#practiceModal" id="<?php //print $k['id']; ?>">Open modal</button> -->
+          <a href="http://internship.sfu-kras.ru/admin.php?block=control-practice&practice-id=<?php print $k['id']; ?>" class="btn btn-primary">Открыть</a>
+        </td>
+      </tr>
+    <?php endforeach; ?>
+    <!--  -->
+
+  </tbody>
+</table>
+
+<?php require('chunks/modal_practice_view_reduction.php'); ?>
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8

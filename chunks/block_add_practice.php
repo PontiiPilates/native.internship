@@ -24,19 +24,31 @@ $output_categorys = db_output_all("SELECT * FROM categorys");
   </div>
   <div class="form-group">
     <label for="practice_company">Выберите компанию<span class="text-danger">*</span></label>
+<<<<<<< HEAD
     <select name="practice_company" id="practice_company" class="form-control" required>
       <option selected>Не выбрано</option>
       <?php foreach ($output_companys as $k) : ?>
         <option value="<?php print $k['id'] ?>"><?php print $k['name'] ?></option>
+=======
+    <select name="practice_company" id="practice_company" required>
+      <?php foreach ($output_companys as $k) : ?>
+        <option value="<?php print $k['id'] ?>" class="form-control"><?php print $k['name'] ?></option>
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
       <?php endforeach; ?>
     </select>
   </div>
   <div class="form-group">
     <label for="practice_category">Выберите категорию<span class="text-danger">*</span></label>
+<<<<<<< HEAD
     <select name="practice_category" id="practice_category" class="form-control" required>
       <option selected>Не выбрано</option>
       <?php foreach ($output_categorys as $k) : ?>
         <option value="<?php print $k['id'] ?>"><?php print $k['name'] ?></option>
+=======
+    <select name="practice_category" id="practice_category" required>
+      <?php foreach ($output_categorys as $k) : ?>
+        <option value="<?php print $k['id'] ?>" class="form-control"><?php print $k['name'] ?></option>
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
       <?php endforeach; ?>
     </select>
   </div>

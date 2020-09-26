@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h3 class="mb-5">Отклики работодателей</h3>
 
 <form action="/responds-employers" method="POST" class="mb-5">
@@ -69,23 +70,57 @@ $output = db_output_all($sql);
       <th <?php print $th_style; ?>>ФИО ответственного лица</th>
       <th <?php print $th_style; ?>>Резюме</th>
       <th <?php print $th_style; ?>></th>
+=======
+<?php
+$output = db_output_all("SELECT * FROM `responds_employers`");
+// echo '<pre>';
+// print_r($output);
+// echo '</pre>';
+?>
+
+<h3>Отклики работодателей</h3>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Дата / время отклика</th>
+      <th>ФИО ответственного лица</th>
+      <th>Резюме</th>
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
     </tr>
   </thead>
 
   <tbody>
+<<<<<<< HEAD
     <?php foreach ($output as $k) : ?>
       <tr <?php print $tr_body_style; ?> respond-employer-row-id="<?php print $k['id']; ?>">
         <td <?php print $td_style; ?>><small <?php print $small_style; ?>><?php print normal_datetime($k['datetime']); ?></small></td>
         <td <?php print $td_style; ?>><a <?php print $a_style; ?> title="<?php print $k['fullname']; ?>" href="respond-employer-<?php print $k['id']; ?>"><?php print cut_string($k['fullname']); ?></a></td>
+=======
+
+    <!-- Вывод откликов из базы данных -->
+    <?php foreach ($output as $k) : ?>
+      <tr>
+        <td><?php print $k['datetime']; ?></td>
+        <td><a href="http://internship.sfu-kras.ru/admin.php?block=employer&employer-id=<?php print $k['id']; ?>"><?php print $k['fullname']; ?></a></td>
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
         <?php
         // Вывод загловка практики.
         $resume_id = $k['resume_id'];
         $resume_fullname = db_output_once("SELECT fio FROM resumes WHERE id = '$resume_id'");
         ?>
+<<<<<<< HEAD
         <td <?php print $td_style; ?>><a <?php print $a_style; ?> href="respond-resume-<?php print $resume_id; ?>"><?php print cut_string($resume_fullname['fio']); ?></a></td>
         <td <?php print $td_style; ?>><a href="#" <?php print $close_style; ?> class="respond-employer-close" id="<?php print $k['id']; ?>"><span aria-hidden="true">&times;</span></a></td>
       </tr>
     <?php endforeach; ?>
+=======
+        <td><a href="http://internship.sfu-kras.ru/admin.php?block=resume&resume-id=<?php print $resume_id; ?>"><?php print $resume_fullname['fio']; ?></a></td>
+      </tr>
+    <?php endforeach; ?>
+    <!--  -->
+
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
   </tbody>
 
 </table>

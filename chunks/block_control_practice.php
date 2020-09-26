@@ -29,11 +29,15 @@ $output_category = db_output_once("SELECT * FROM categorys WHERE id = '$category
 <form id="control-practice">
     <div class="form-group">
         <label for="practice_title">Введите название практики<span class="text-danger">*</span></label>
+<<<<<<< HEAD
         <select name="practice_title" class="form-control" id="practice_title" value="<?php print $output['title']; ?>">
             <option selected value="<?php print $output['title']; ?>"><?php print $output['title']; ?></option>
             <?php require('data/data_directions.php'); ?>
         </select>
 
+=======
+        <input type="text" name="practice_title" id="practice_title" class="form-control" required value="<?php print $output['title']; ?>">
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
     </div>
     <div class="form-group">
         <label for="practice_description">Введите описание<span class="text-danger">*</span></label>
@@ -48,7 +52,11 @@ $output_category = db_output_once("SELECT * FROM categorys WHERE id = '$category
 
     <div class="form-group">
         <label for="practice_company">Выберите компанию<span class="text-danger">*</span></label>
+<<<<<<< HEAD
         <select name="practice_company" id="practice_company" class="form-control" required>
+=======
+        <select name="practice_company" id="practice_company" required>
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
             <option selected value="<?php print $output_company['id']; ?>"><?php print $output_company['name']; ?></option>
             <?php foreach ($output_companys as $k) : ?>
                 <?php /*Условия позволяет избежать повторения в селекте*/ if ($k != $output_company) : ?>
@@ -60,7 +68,11 @@ $output_category = db_output_once("SELECT * FROM categorys WHERE id = '$category
 
     <div class="form-group">
         <label for="practice_category">Выберите категорию<span class="text-danger">*</span></label>
+<<<<<<< HEAD
         <select name="practice_category" id="practice_category" class="form-control" required>
+=======
+        <select name="practice_category" id="practice_category" required>
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
             <option selected value="<?php print $output_category['id']; ?>" class="form-control"><?php print $output_category['name'] ?></option>
             <?php foreach ($output_categorys as $k) : ?>
                 <?php /*Условия позволяет избежать повторения в селекте*/ if ($k != $output_category) : ?>
@@ -71,6 +83,7 @@ $output_category = db_output_once("SELECT * FROM categorys WHERE id = '$category
     </div>
 
     <div class="form-group">
+<<<<<<< HEAD
         <label for="fio">Введите фамилию<span class="text-danger">*</span></label>
         <input type="text" class="form-control" name="fio" id="fio" value="<?php print $output['fio'] ?>">
     </div>
@@ -91,6 +104,8 @@ $output_category = db_output_once("SELECT * FROM categorys WHERE id = '$category
     </div>
 
     <div class="form-group">
+=======
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
         <input type="submit" class="btn btn-success" value="Сохранить">
         <input type="button" class="btn btn-danger" value="Удалить" id="practice_delete" data-target="<?php print $practice_id ?>">
         <!-- Идентификатор категории. -->

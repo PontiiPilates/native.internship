@@ -71,6 +71,7 @@ function db_output_once($query)
 /**
  * Выполняет проверку наличия записи в базе данных.
  */
+<<<<<<< HEAD
 function db_check($query)
 {
   $sql = mysqli_query(connect(), $query);
@@ -88,3 +89,10 @@ function db_count_all($table)
   return ($res[0]['COUNT(*)']);
 }
 
+=======
+function db_check($query) {
+  $sql = mysqli_query(connect(), $query);
+  $res = mysqli_num_rows($sql);
+  return $res;
+}
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8

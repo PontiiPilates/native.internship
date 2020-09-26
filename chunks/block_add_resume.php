@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 $output_directions = db_output_all("SELECT DISTINCT direction FROM directions ORDER BY direction");
 
@@ -11,6 +12,8 @@ $output_programs = db_output_all("SELECT DISTINCT program FROM directions ORDER 
 
 
 
+=======
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
 <form id="add-resume">
   <div class="form-group">
     <label for="resume_fio">Введите ФИО соискателя<span class="text-danger">*</span></label>
@@ -21,6 +24,7 @@ $output_programs = db_output_all("SELECT DISTINCT program FROM directions ORDER 
     <textarea name="resume_about" id="resume_about" cols="30" rows="10" class="form-control" required></textarea>
   </div>
 
+<<<<<<< HEAD
   <!-- <div class="form-group">
     <label for="resume_features">Введите ключевые слова через ","</label>
     <input type="text" class="form-control" name="resume_features" id="resume_features">
@@ -70,6 +74,13 @@ $output_programs = db_output_all("SELECT DISTINCT program FROM directions ORDER 
     <input type="text" class="form-control" name="email" id="email">
   </div>
 
+=======
+  <div class="form-group">
+    <label for="resume_features">Введите ключевые слова через ","</label>
+    <input type="text" class="form-control" name="resume_features" id="resume_features">
+  </div>
+
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
   <div class="form-group">
     <input type="submit" class="btn btn-primary">
   </div>

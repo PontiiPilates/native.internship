@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h3 class="mb-5">Отклики соискателей</h3>
 
 <form action="/responds-applicants" method="POST" class="mb-5">
@@ -69,23 +70,57 @@ $output = db_output_all($sql);
       <th <?php print $th_style; ?>>ФИО соискателя</th>
       <th <?php print $th_style; ?>>Практика</th>
       <th <?php print $th_style; ?>></th>
+=======
+<?php
+$output = db_output_all("SELECT * FROM `responds_applicants`");
+// echo '<pre>';
+// print_r($practice_tittle);
+// echo '</pre>';
+?>
+
+<h3>Отклики соискателей</h3>
+
+<table class="table table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Дата / время отклика</th>
+      <th>ФИО соискателя</th>
+      <th>Практика</th>
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
     </tr>
   </thead>
 
   <tbody>
+<<<<<<< HEAD
     <?php foreach ($output as $k) : ?>
       <tr <?php print $tr_body_style; ?> respond-applicant-row-id="<?php print $k['id']; ?>">
         <td <?php print $td_style; ?>><small <?php print $small_style; ?>><?php print normal_datetime($k['datetime']); ?></small></td>
         <td <?php print $td_style; ?>><a <?php print $a_style; ?> title="<?php print $k['fullname']; ?>" href="respond-applicant-<?php print $k['id']; ?>"><?php print cut_string($k['fullname']); ?></a></td>
+=======
+
+    <!-- Вывод откликов из базы данных -->
+    <?php foreach ($output as $k) : ?>
+      <tr>
+        <td><?php print $k['datetime']; ?></td>
+        <td><a href="http://internship.sfu-kras.ru/admin.php?block=resume&respond-id=<?php print $k['id']; ?>"><?php print $k['fullname']; ?></a></td>
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
         <?php
         // Вывод загловка практики.
         $practice_id = $k['popup_practice_id'];
         $practice_tittle = db_output_once("SELECT title FROM practices WHERE id = '$practice_id'");
         ?>
+<<<<<<< HEAD
         <td <?php print $td_style; ?>><a <?php print $a_style; ?> title="<?php print $practice_tittle['title']; ?>" href="short-practice-<?php print $practice_id; ?>"><?php print cut_string($practice_tittle['title']); ?></a></td>
         <td <?php print $td_style; ?>><a href="#" <?php print $close_style; ?> class="respond-applicant-close" id="<?php print $k['id']; ?>"><span aria-hidden="true">&times;</span></a></td>
       </tr>
     <?php endforeach; ?>
+=======
+        <td><a href="http://internship.sfu-kras.ru/admin.php?block=practice&practice-id=<?php print $practice_id; ?>"><?php print $practice_tittle['title']; ?></a></td>
+      </tr>
+    <?php endforeach; ?>
+    <!--  -->
+
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
   </tbody>
 
 </table>

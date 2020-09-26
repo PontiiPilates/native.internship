@@ -9,6 +9,7 @@ $output = db_output_once("SELECT * FROM `practices` WHERE id = '$practice_id'");
 
 
 
+<<<<<<< HEAD
 <?php
 $company_id = $output['company_id'];
 $company_output = db_output_once("SELECT * FROM `companys` WHERE id = '$company_id'");
@@ -33,6 +34,13 @@ $company_output = db_output_once("SELECT * FROM `companys` WHERE id = '$company_
 </dl>
 
 <template>
+=======
+  <?php
+  $company_id = $output['company_id'];
+  $company_output = db_output_once("SELECT * FROM `companys` WHERE id = '$company_id'");
+  ?>
+
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
   <div class="app-block">
     <div class="app-content">
       <div class="app-data">
@@ -61,5 +69,9 @@ $company_output = db_output_once("SELECT * FROM `companys` WHERE id = '$company_
     <img class="button-icon" src="img/done.svg" alt="Заявка отправлена">
     <div class="button-content">Заявка отправлена</div>
   </div> -->
+<<<<<<< HEAD
   </div>
 </template>
+=======
+  </div>
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8

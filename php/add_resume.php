@@ -7,6 +7,7 @@ require('../functions/functions.php');
 // echo '</pre>';
 
 $fio = var_to_str($_POST['resume_fio']); 
+<<<<<<< HEAD
 $about = $_POST['resume_about'];
 // $about = var_to_str($_POST['resume_features']);
 $direction = var_to_str($_POST['direction']);
@@ -36,6 +37,13 @@ if (db_query("INSERT INTO `resumes`(
     '$phone',
     '$email'
   )")) {
+=======
+$features = var_to_str($_POST['resume_about']);
+$about = var_to_str($_POST['resume_features']);
+$datetime = time();
+
+if (db_query("INSERT INTO `resumes`(`id`, `fio`, `features`, `about`, `datetime`) VALUES (NULL, '$fio', '$features', '$about', '$datetime')")) {
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
   die('s: Резюме успешно добавлено');
 } else {
   die('e: Не удалось добавить резюме');

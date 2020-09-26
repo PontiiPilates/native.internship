@@ -22,12 +22,16 @@
               </div>
               <div class="form-block">
                 <label for="state" class="form-head">Гражданство</label>
+<<<<<<< HEAD
                 <!-- <input name="citizenship" data-req="true" id="state" placeholder="Российская Федерация" type="text" class="form-input"> -->
                 <select name="citizenship" id="inst" size="1" class="form-input">
                   <option value="Российская Федерация">Российская Федерация</option>
                   <option value="Страны СНГ">Страны СНГ</option>
                   <option value="Иное гражданство">Иное гражданство</option>
                 </select>
+=======
+                <input name="citizenship" data-req="true" id="state" placeholder="Российская Федерация" type="text" class="form-input">
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
                 <div class="form-input-error-label">Обязательное поле</div>
                 <!-- <div class="form-input-suggest">Российская Федерация</div> -->
               </div>
@@ -43,12 +47,19 @@
               </div>
               <div class="form-block">
                 <label for="el" class="form-head">Электронная почта</label>
+<<<<<<< HEAD
                 <input name="email" data-req="true" id="el" placeholder="address@mail.ru" type="text" class="form-input">
+=======
+                <input name="email" data-req="true" id="el" placeholder="address@mail.ru" type="email" class="form-input">
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
                 <div class="form-input-error-label">Обязательное поле</div>
               </div>
               <div class="form-block">
                 <label for="vk" class="form-head">Профиль ВКонтакте</label>
+<<<<<<< HEAD
                 <!-- <label for="el" class="form-head form-head-vk">vk.com/</label> -->
+=======
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
                 <input name="vk_profile" data-req="false" id="vk" placeholder="vk.com/ivanov" type="email" class="form-input">
                 <div class="form-input-error-label">Обязательное поле</div>
               </div>
@@ -103,6 +114,7 @@
                     <div class="form-block">
                       <label class="form-head">Курс</label>
                       <div class="sub-tabs">
+<<<<<<< HEAD
                         <input class="radio_bak" id="1c" type="radio" name="course" value="1" checked>
                         <label for="1c">1</label>
                         <input class="radio_bak" id="2c" type="radio" name="course" value="2">
@@ -110,6 +122,15 @@
                         <input class="radio_bak" id="3c" type="radio" name="course" value="3">
                         <label for="3c">3</label>
                         <input class="radio_bak" id="4c" type="radio" name="course" value="4">
+=======
+                        <input id="1c" type="radio" name="course" value="1" checked>
+                        <label for="1c">1</label>
+                        <input id="2c" type="radio" name="course" value="2">
+                        <label for="2c">2</label>
+                        <input id="3c" type="radio" name="course" value="3">
+                        <label for="3c">3</label>
+                        <input id="4c" type="radio" name="course" value="4">
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
                         <label for="4c">4</label>
                       </div>
                     </div>
@@ -125,15 +146,25 @@
                     <div class="form-block">
                       <label class="form-head">Курс</label>
                       <div class="sub-tabs">
+<<<<<<< HEAD
                         <input class="radio_mag" id="1cm" type="radio" name="course" value="1" checked>
                         <label for="1cm">1</label>
                         <input class="radio_mag" id="2cm" type="radio" name="course" value="2">
+=======
+                        <input id="1cm" type="radio" name="course" value="1" checked>
+                        <label for="1cm">1</label>
+                        <input id="2cm" type="radio" name="course" value="2">
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
                         <label for="2cm">2</label>
                       </div>
                     </div>
                     <div class="form-block">
                       <label for="naprm" class="form-head">Направление подготовки</label>
+<<<<<<< HEAD
                       <input name="direction[]" id="naprm" placeholder="Прикладная математика" type="text" class="form-input">
+=======
+                      <input name="direction[]" data-req="true" id="naprm" placeholder="Прикладная математика" type="text" class="form-input">
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
                       <div class="form-input-error-label">Обязательное поле</div>
                       <a href="https://admissions.sfu-kras.ru/exams" target="_blank" class="form-input-suggest">Список направлений подготовки</a>
                     </div>
@@ -143,6 +174,7 @@
                     <div class="form-block">
                       <label class="form-head">Курс</label>
                       <div class="sub-tabs">
+<<<<<<< HEAD
                         <input class="radio_spec" id="1cs" type="radio" name="course" value="1" checked>
                         <label for="1cs">1</label>
                         <input class="radio_spec" id="2cs" type="radio" name="course" value="2">
@@ -152,12 +184,27 @@
                         <input class="radio_spec" id="4cs" type="radio" name="course" value="4">
                         <label for="4cs">4</label>
                         <input class="radio_spec" id="5cs" type="radio" name="course" value="5">
+=======
+                        <input id="1cs" type="radio" name="course" value="1" checked>
+                        <label for="1cs">1</label>
+                        <input id="2cs" type="radio" name="course" value="2">
+                        <label for="2cs">2</label>
+                        <input id="3cs" type="radio" name="course" value="3">
+                        <label for="3cs">3</label>
+                        <input id="4cs" type="radio" name="course" value="4">
+                        <label for="4cs">4</label>
+                        <input id="5cs" type="radio" name="course" value="5">
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
                         <label for="5cs">5</label>
                       </div>
                     </div>
                     <div class="form-block">
                       <label for="naprs" class="form-head">Специальность</label>
+<<<<<<< HEAD
                       <input name="direction[]" id="naprs" placeholder="Прикладная математика" type="text" class="form-input">
+=======
+                      <input name="direction[]" data-req="true" id="naprs" placeholder="Прикладная математика" type="text" class="form-input">
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
                       <div class="form-input-error-label">Обязательное поле</div>
                     </div>
                   </section>
@@ -202,6 +249,10 @@
             </div>
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
             <div class="pers-block">
               <input name="signature" type="checkbox" id="pers">
               <label for="pers" class="pers-head">Согласен на обработку персональных данных</label>

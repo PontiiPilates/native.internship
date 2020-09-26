@@ -50,8 +50,13 @@
             <div class="button-content">Откликнуться</div>
           </div>
           <div class="pers-block">
+<<<<<<< HEAD
             <input name="signature" type="checkbox" id="pers2">
             <label for="pers2" class="pers-head">Согласен на обработку персональных данных</label>
+=======
+            <input name="signature" type="checkbox" id="pers">
+            <label for="pers" class="pers-head">Согласен на обработку персональных данных</label>
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
             <div class="form-input-error-label form-input-error-label-pers">Согласие обязательно</div>
             <!-- <label class="pers-text">Согласен на обработку персональных данных в соответствии с федеральным законом от 27 июля 2006 г. № 152-ФЗ «О персональных данных»</label> -->
             <input type="hidden" id="popup_resume_id" name="popup_resume_id" value="#">

@@ -1,7 +1,11 @@
 $(document).ready(function () {
 
+<<<<<<< HEAD
     var cours1 = true;
     var cours2, cours3;
+=======
+
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
 
     // раскрыть полное описание заявки
     $('.app-desc-small').click(function () {
@@ -37,6 +41,7 @@ $(document).ready(function () {
     });
 
     // раскрыть фильтр на мобилке
+<<<<<<< HEAD
     $('.filter-block').click(function () {
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             $('.filter-block-content').toggleClass('block');
@@ -44,6 +49,9 @@ $(document).ready(function () {
         }
     });
     $('.filter-item').click(function () {
+=======
+    $('.filter-block-header').click(function () {
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
         if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
             $('.filter-block-content').toggleClass('block');
             $('.filter-block-header').toggleClass('filter-block-header-mag');
@@ -101,6 +109,7 @@ $(document).ready(function () {
         $('#content-tab2').removeClass('tab-section-active');
     });
 
+<<<<<<< HEAD
     $('#popup-applicant #num').mask("+7 999 999-99-99", {placeholder:"-"});
     $('#popup-employer #num').mask("+7 999 999-99-99", {placeholder:"-"});
 
@@ -115,10 +124,16 @@ $(document).ready(function () {
     $('#send-form-applicant').click(function () {
         // console.log('click!')
         checkFields(false);
+=======
+    // отправить форму соискателя
+    $('#send-form-applicant').click(function () {
+        checkFields();
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
     });
 
     // отправить форму работодателя
     $('#send-form-employer').click(function () {
+<<<<<<< HEAD
         checkFields(true);
     });
 
@@ -212,13 +227,32 @@ $(document).ready(function () {
             } else {
                 $('.form-input-error-label-pers').removeClass('block');
                 two = true;
+=======
+        checkFields();
+    });
+
+    // проверить поля на заполненность
+    function checkFields() {
+        $('input[data-req=true]').each(function (index, element) {
+            if ($(this).val() == '') {
+                let input = $(this);
+                let error = $(this).parent().find('.form-input-error-label');
+
+                error.addClass('block');
+                input.addClass('form-input-error');
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
             }
         }
 
+<<<<<<< HEAD
         else{
             if (!$('#popup-applicant #pers').prop('checked')) {
                 $('.form-input-error-label-pers').addClass('block');
                 two = false;
+=======
+            if (!$('#pers').prop('checked')) {
+                $('.form-input-error-label-pers').addClass('block');
+>>>>>>> ab65ae6473a2cb39871bc09dcc4649980d8535d8
             } else {
                 $('.form-input-error-label-pers').removeClass('block');
                 two = true;
