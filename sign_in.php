@@ -1,5 +1,11 @@
-<html lang="en">
+<html lang="ru">
 <?php require('chunks/head.php'); ?>
+
+<?php 
+
+print 'Ok';
+
+?>
 
 <body>
   <div class="popup">

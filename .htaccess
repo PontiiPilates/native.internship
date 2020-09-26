@@ -1,0 +1,144 @@
+# Установка кодировки
+AddDefaultCharset UTF-8
+
+# Стартовая страница
+DirectoryIndex landing/howitworks.php
+
+# Включает модуль Mod_Rewrite
+# Позволяет осуществлять редирект
+RewriteEngine On
+
+# Указывает префикс адреса
+# В нашем случае это /
+RewriteBase /
+
+# Осуществляет редирект с одного файла на другой без изменения отображаемого URL
+# 1 url - исходный
+# 2 url - целевой
+# Путь к запрашиваемому файлу указывается относительно .htaccess
+# Не принимает GET-параметры в качестве адреса редиректа
+# На внутренних страницах адрес остается в качестве 1 url
+
+
+# ЧПУ студенту
+RewriteRule ^student index.php?block=student
+# ЧПУ работодателю
+RewriteRule ^employer index.php?block=employer
+# ЧПУ как это работает
+RewriteRule howitworks landing/howitworks.php
+# ЧПУ войти
+RewriteRule ^user user.php
+# ЧПУ админка
+RewriteRule ^admin admin.php
+
+
+# ЧПУ фильтр по категориям
+RewriteRule ^category-([0-9]+)$ index.php?block=student&category=$1
+
+
+# ЧПУ добавить практику
+RewriteRule ^add-practice admin.php?block=add-practice
+# ЧПУ добавить резюме
+RewriteRule ^add-resume admin.php?block=add-resume
+# ЧПУ добавить компанию
+RewriteRule ^add-company admin.php?block=add-company
+# ЧПУ добавить категорию
+RewriteRule ^add-category admin.php?block=add-category
+# ЧПУ добавить направление
+RewriteRule ^add-direction admin.php?block=add-direction
+
+
+# ЧПУ редактировать практики
+RewriteRule ^practice-reduction-([0-9]+)$ admin.php?block=control-practice&practice-id=$1
+# ЧПУ редактировать резюме
+RewriteRule ^resume-reduction-([0-9]+)$ admin.php?block=control-resume&resume-id=$1
+# ЧПУ редактировать компании
+RewriteRule ^company-reduction-([0-9]+)$ admin.php?block=control-company&company-id=$1
+# ЧПУ редактирования категории
+RewriteRule ^category-reduction-([0-9]+)$ admin.php?block=control-category&category-id=$1
+# ЧПУ редактирования направления
+RewriteRule ^direction-reduction-([0-9]+)$ admin.php?block=control-direction&direction-id=$1
+
+
+# ЧПУ смотреть практики
+RewriteRule ^list-practices admin.php?block=list-practices
+# ЧПУ смотреть резюме
+RewriteRule ^list-resumes admin.php?block=list-resume
+# ЧПУ смотреть компании
+RewriteRule ^list-companys admin.php?block=list-company
+# ЧПУ смотреть категории
+RewriteRule ^list-categorys admin.php?block=list-category
+# ЧПУ смотреть категории
+RewriteRule ^list-directions admin.php?block=list-directions
+
+
+# ЧПУ смотреть отклики соискателей
+RewriteRule ^responds-applicants admin.php?block=responds_applicants
+# ЧПУ смотреть отклики работодателей
+RewriteRule ^responds-employers admin.php?block=responds_employers
+
+
+# ЧПУ выхода из личного кабинета
+RewriteRule ^exit php/session_out.php
+
+
+# ЧПУ карточки соискателя
+RewriteRule ^respond-applicant-([0-9]+)$ admin.php?block=applicant&respond-id=$1
+# ЧПУ карточки практики
+RewriteRule ^short-practice-([0-9]+)$ admin.php?block=practice&practice-id=$1
+# ЧПУ карточки работодателя
+RewriteRule ^respond-employer-([0-9]+)$ admin.php?block=employer&employer-id=$1
+# ЧПУ карточки резюме
+RewriteRule ^respond-resume-([0-9]+)$ admin.php?block=resume&resume-id=$1
+
+
+# ЧПУ поиск студента
+RewriteRule ^search-student-([а-яА-Яa-zA-z0-9шщэьъыцухфрчстюШЩЭЬЪЫЦУХФРЧСТЮ\s]+)$ index.php?block=result&type=practices&query=$1
+# ЧПУ поиск работодателя
+RewriteRule ^search-employer-([а-яА-Яa-zA-z0-9шщэьъыцухфрчстюШЩЭЬЪЫЦУХФРЧСТЮ\s]+)$ index.php?block=result&type=resumes&query=$1
+
+# Редирект
+# 301 - код редиректа, который будет возвращен клиенту
+# Redirect 301 index.php?block=student
+
+# Проверяет соответствие
+# RewriteCond
+
+# ^ находится в начале строки
+# $ находится в конце строки
+# . любой символ
+# * любое количество любых символов
+
+# [NC] без учета регистра
+# [l] прекращение обработки
+# [R] редирект
+# [r=301] обновление содержимого адресной строки
+
+
+# order - порядок;
+# deny - запретить;
+# allow - разрешить.
+
+# ^ - начало строки;
+# $ - конец строки;
+# . - любой символ;
+# * - любое количество любых символов;
+# ? - один определенный символ;
+# [0-9] - последовательность символов, например, от 0 до 9;
+# | - символ или, выбирается или одна группа, или другая;
+# () - иcпользуется для выбора групп символов.
+
+
+# %{HTTP_USER_AGENT} - поле User-Agent, которое передает браузер пользователя;
+# %{REMOTE_ADDR} - IP адрес пользователя;
+# %{REQUEST_URI} - запрашиваемый URI;
+# %{QUERY_STRING} - параметры запроса после знака ?.
+
+# http://www.codeharmony.ru/materials/88
+# https://pixelplus.ru/samostoyatelno/stati/indeksatsiya/301-redirekt.html
+# https://www.nic.ru/help/fajl-htaccess-nastrojka-perenapravlenij-i-upravlenie-konfiguraciej-veb-servera_6793.html
+# http://webmastermix.ru/raznoe/285-fajl-htaccess-nastrojka-i-primery-ispolzovaniya.html
+# https://ru.hostings.info/schools/htaccess.html
+# http://www.codeharmony.ru/materials/88
+# https://web-optimizator.com/chpu-htaccess/
+# https://htmlweb.ru/php/htaccess.php

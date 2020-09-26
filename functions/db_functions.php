@@ -11,7 +11,7 @@ function connect()
   $password = 'choaF9ei';
   $db_name = 'db_internship';
   $connect = mysqli_connect($host, $user, $password, $db_name);
-  $connect -> set_charset("utf8");
+  $connect->set_charset("utf8");
   return $connect;
 }
 
@@ -36,10 +36,55 @@ function check_connect()
 
 /**
  * Выполнает добавление записи в базу данных.
+ * Выполняет удаление записи из базы данных.
+ * Выполняет обновление записи в базе данных.
  * Возвращает true либо false.
  */
-function db_add($query)
+function db_query($query)
 {
   $res = mysqli_query(connect(), $query);
   return $res;
 }
+
+/**
+ * Выполняет вывод всех записей из базы данных в соответствии с запросом.
+ * Возвращает ассоциативный массив.
+ */
+function db_output_all($query)
+{
+  $sql = mysqli_query(connect(), $query);
+  $res = mysqli_fetch_all($sql, TRUE);
+  return $res;
+}
+
+/**
+ * Возвращает содержимое одной строки, найденной в базе данных.
+ */
+function db_output_once($query)
+{
+  $sql = mysqli_query(connect(), $query);
+  $res = mysqli_fetch_assoc($sql);
+  return $res;
+}
+
+
+/**
+ * Выполняет проверку наличия записи в базе данных.
+ */
+function db_check($query)
+{
+  $sql = mysqli_query(connect(), $query);
+  $res = mysqli_num_rows($sql);
+  return $res;
+}
+
+/**
+ * Возвращает все записи в таблице
+ */
+function db_count_all($table)
+{
+  $sql = mysqli_query(connect(), "SELECT COUNT(*) FROM $table");
+  $res = mysqli_fetch_all($sql, TRUE);
+  return ($res[0]['COUNT(*)']);
+}
+

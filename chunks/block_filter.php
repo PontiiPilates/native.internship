@@ -6,7 +6,18 @@
   </div>
   <div class="filter-block-content">
     <ul>
-      <li class="filter-item"><input id="it" class="checkbox" type="checkbox"><label for="it">IT</label></li>
+
+      <?php
+      $output = db_output_all("SELECT * FROM categorys");
+      ?>
+
+      <?php foreach ($output as $k) : ?>
+        <li class="filter-item">
+          <a href="category-<?php print $k['id']; ?>"><?php print $k['name']; ?></a>
+        </li>
+      <?php endforeach; ?>
+
+      <!-- <li class="filter-item"><input id="it" class="checkbox" type="checkbox"><label for="it">IT</label></li>
       <li class="filter-item"><input id="mar" class="checkbox" type="checkbox"><label for="mar">Маркетинг</label></li>
       <li class="filter-item"><input id="prom" class="checkbox" type="checkbox"><label for="prom">Промышленность</label></li>
       <li class="filter-item"><input id="fin" class="checkbox" type="checkbox"><label for="fin">Финансы</label></li>
@@ -14,7 +25,8 @@
       <li class="filter-item"><input id="ek" class="checkbox" type="checkbox"><label for="ek">Экономика</label></li>
       <li class="filter-item"><input id="proiz" class="checkbox" type="checkbox"><label for="proiz">Производство</label></li>
       <li class="filter-item"><input id="diz" class="checkbox" type="checkbox"><label for="diz">Дизайн</label></li>
-      <li class="filter-item"><input id="adm" class="checkbox" type="checkbox"><label for="adm">Администрирование</label></li>
+      <li class="filter-item"><input id="adm" class="checkbox" type="checkbox"><label for="adm">Администрирование</label></li> -->
+
     </ul>
   </div>
 </div>

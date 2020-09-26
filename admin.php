@@ -1,5 +1,15 @@
 <?php
 require('functions/db_functions.php');
+require('functions/functions.php');
+date_default_timezone_set('Asia/Krasnoyarsk');
+
+
+// Осуществляем доступ к странице только авторизованным пользователям.
+session_start();
+if (!$_SESSION) {
+  die('Упс, как вы тут оказались?');
+}
+
 ?>
 
 <html lang="ru">
@@ -30,58 +40,115 @@ require('functions/db_functions.php');
     </div>
     <div class="row ">
       <div class="col-lg-3 col-sm-12">
-        <ul>
-          <li class="mb-3"><a href="?block=add-practice" class="btn btn-primary">Добавить практику</a></li>
-          <li class="mb-3"><a href="##" class="btn btn-secondary">Добавить резюме</a></li>
-          <li class="mb-3"><a href="##" class="btn btn-info">Добавить компанию</a></li>
-        </ul>
-        <hr>
-        <ul>
-          <li class="mb-1"><a href="?block=list-practice" class="btn btn-link">Практики</a></li>
-          <li class="mb-1"><a href="##" class="btn btn-link">Резюме</a></li>
-          <li class="mb-1"><a href="##" class="btn btn-link">Компании</a></li>
-        </ul>
-        <hr>
-        <ul>
-          <li class="mb-1"><a href="?block=output_list_respond_applicant" class="btn btn-link">Отклики соискателей</a></li>
-          <li class="mb-1"><a href="##" class="btn btn-link">Отклики работодателей</a></li>
-        </ul>
+        <?php require('chunks/block_secondary_menu.php'); ?>
       </div>
       <div class="col-lg-9 col-sm-12">
         <div class="content">
-          <?php require('chunks/block_alert.php') ?>
+          <?php require('chunks/block_alert.php'); ?>
 
-
+          
+          
           <?php
-          // Сценарии изменения контента.
-          // TODO: Хорошо бы сделать переменные с GET-параметрами в отдельном файле. Для стандартизации.
+          // !Блок старта админки
+          if (!$_GET['block']) {
+            require('chunks/block_help_reduction.php');
+          }
+
+          // !Блоки добавления
+          // Добавление практики
           if ($_GET['block'] == 'add-practice') {
             require('chunks/block_add_practice.php');
           }
-          if ($_GET['block'] == 'list-practice') {
+          // Добавление резюме
+          if ($_GET['block'] == 'add-resume') {
+            require('chunks/block_add_resume.php');
+          }
+          // Добавление компании
+          if ($_GET['block'] == 'add-company') {
+            require('chunks/block_add_company.php');
+          }
+          // Добавление категории
+          if ($_GET['block'] == 'add-category') {
+            require('chunks/block_add_category.php');
+          }
+          // Добавление направление
+          if ($_GET['block'] == 'add-direction') {
+            require('chunks/block_add_direction.php');
+          }
+          
+          // !Блоки просмотра
+          // Просмотр списка практик
+          if ($_GET['block'] == 'list-practices') {
             require('chunks/block_output_list_practice.php');
           }
-          if ($_GET['block'] == 'output_list_respond_applicant') {
+          // Просмотр списка резюме
+          if ($_GET['block'] == 'list-resume') {
+            require('chunks/block_output_list_resume.php');
+          }
+          // Просмотр списка компаний
+          if ($_GET['block'] == 'list-company') {
+            require('chunks/block_output_list_company.php');
+          }
+          // Просмотр списка категорий
+          if ($_GET['block'] == 'list-category') {
+            require('chunks/block_output_list_category.php');
+          }
+          // Просмотр списка направлений
+          if ($_GET['block'] == 'list-directions') {
+            require('chunks/block_output_list_directions.php');
+          }
+
+          // !Блоки редактирования материалов
+          // Просмотр и редактирование практики
+          if ($_GET['block'] == 'control-practice') {
+            require('chunks/block_control_practice.php');
+          }
+          // Просмотр и редактирование резюме
+          if ($_GET['block'] == 'control-resume') {
+            require('chunks/block_control_resume.php');
+          }
+          // Просмотр и редактирование компании
+          if ($_GET['block'] == 'control-company') {
+            require('chunks/block_control_company.php');
+          }
+          // Просмотр и редактирование категории
+          if ($_GET['block'] == 'control-category') {
+            require('chunks/block_control_category.php');
+          }
+
+          // Просмотр и редактирование направления
+          if ($_GET['block'] == 'control-direction') {
+            require('chunks/block_control_direction.php');
+          }
+
+          // !Блоки просмотра откликов
+          // Просмотр откликов соискателей.
+          if ($_GET['block'] == 'responds_applicants') {
             require('chunks/block_output_list_respond_applicant.php');
           }
-          ?>
+          // Просмотр откликов работодателей
+          if ($_GET['block'] == 'responds_employers') {
+            require('chunks/block_output_list_respond_employer.php');
+          }
 
+          // !Блоки просмотра сведений
+          // Просмотр сведений соискателя
+          if ($_GET['block'] == 'applicant') {
+            require('chunks/block_view_only_applicant.php');
+          }
+          // Просмотр сведений работодателя
+          if ($_GET['block'] == 'employer') {
+            require('chunks/block_view_only_employer.php');
+          }
+          // Просмотр резюме
+          if ($_GET['block'] == 'resume') {
+            require('chunks/block_view_only_resume.php');
+          }
+          // Просмотр практики
+          if ($_GET['block'] == 'practice') {
+            require('chunks/block_view_only_practice.php');
+          }
 
-
-          <?php
-          // require('chunks/block_add_resume.php');
-          ?>
-          <?php // require('chunks/block_add_company.php');
-          ?>
-
-
-          <?php // require('chunks/block_output_list_resume.php');
-          ?>
-          <?php // require('chunks/block_output_list_company.php');
-          ?>
-
-
-          <?php // require('chunks/block_output_list_respond_employer.php');
           ?>
 
         </div>

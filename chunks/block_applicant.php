@@ -1,35 +1,66 @@
-<div class="app-block">
-  <div class="app-content">
-    <div class="app-data">
-      <h3 class="app-head">Менеджер по продажам</h3>
-      <div class="app-features">
-        <div class="app-feature">Интересная практика</div>
-        <div class="app-feature">Востребованно у студентов</div>
+<?php
+
+// $output = db_output_all("SELECT * FROM `practices`");
+
+// echo '<pre>';
+// print_r($_GET);
+// echo '</pre>';
+
+$category = $_GET['category'];
+
+if ($category) {
+  $sql = "SELECT * FROM practices WHERE category_id = '$category' ORDER BY `timestamp` DESC";
+} else {
+  $sql = "SELECT * FROM practices ORDER BY `timestamp` DESC";
+}
+
+$output = db_output_all($sql);
+
+
+
+?>
+
+<?php foreach ($output as $k) : ?>
+
+  <?php
+  $company_id = $k['company_id'];
+  $company_output = db_output_once("SELECT * FROM `companys` WHERE id = '$company_id'");
+  ?>
+
+  <div class="app-block">
+    <div class="app-content">
+      <div class="app-data">
+        <h3 class="app-head"><?php print $k['title']; ?></h3>
+        <div class="app-features">
+          <div class="app-feature">
+            <?php print $k['features']; ?>
+          </div>
+          <!-- <div class="app-feature">Востребованно у студентов</div> -->
+        </div>
+        <div class="app-desc app-desc-small">
+          <?php print short_description($k['description']); ?>
+        </div>
+        <div class="app-desc app-desc-full">
+          <p class="app-desc-p"><?php print $k['description']; ?></p>
+        </div>
       </div>
-      <div class="app-desc app-desc-small">
-        Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь.
-        <span class="app-desc-full-toggle">Читать&nbsp;полностью</span>
-      </div>
-      <div class="app-desc app-desc-full">
-        <p class="app-desc-p">
-          Есть много вариантов Lorem Ipsum, но большинство из них имеет не всегда приемлемые модификации, например, юмористические вставки или слова, которые даже отдалённо не напоминают латынь.
-        </p>
-        <p class="app-desc-p">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Assumenda, corporis excepturi natus, inventore unde dolores perspiciatis dolorum possimus eligendi doloremque fuga autem ipsam necessitatibus distinctio accusantium non molestiae velit quisquam.
-        </p>
+      <div class="app-company">
+        <div class="app-company-logo">
+          <img width="50" src="/img/company_logo/<?php print $company_output['logotip']; ?>" alt="<?php print $company_output['name']; ?>"></div>
+        <div class="app-company-all"><?php print $company_output['name']; ?></div>
       </div>
     </div>
-    <div class="app-company">
-      <div class="app-company-logo"></div>
-      <div class="app-company-all" href="#">Норникель</div>
+
+    <?php require('chunks/block_admin_data_applicant.php'); // Блок с информацией о практике для админа ?>
+
+    <div class="button button-primary respond-practice" id="<?php print $k['id']; ?>" item-title="<?php print $k['title']; ?>">
+      <img class="button-icon" src="img/add.svg" alt="Добавить">
+      <div class="button-content">Откликнуться</div>
     </div>
-  </div>
-  <div class="button button-primary">
-    <img class="button-icon" src="img/add.svg" alt="Добавить">
-    <div class="button-content">Откликнуться</div>
-  </div>
-  <!-- <div class="button button-done">
+    <!-- <div class="button button-done">
     <img class="button-icon" src="img/done.svg" alt="Заявка отправлена">
     <div class="button-content">Заявка отправлена</div>
   </div> -->
-</div>
+  </div>
+
+<?php endforeach; ?>
