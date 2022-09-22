@@ -8,8 +8,8 @@ function connect()
 {
   $host = 'localhost';
   $user = 'internship';
-  $password = 'choaF9ei';
-  $db_name = 'db_internship';
+  $password = '***';
+  $db_name = '***';
   $connect = mysqli_connect($host, $user, $password, $db_name);
   $connect->set_charset("utf8");
   return $connect;
